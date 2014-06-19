@@ -17,12 +17,8 @@
 
 import QtQuick 2.0
 
-/**
- * Mock implementation of Ofono
- *
- * https://github.com/intgr/ofono/blob/master/doc/sim-api.txt
- */
-QtObject{
+Item {
+    id: telephonyManager
 
     property bool present: true
     property string subscriberIdentity: "1234-5678-9012-3456"
@@ -62,7 +58,5 @@ QtObject{
     function retries(){
         return {pin: pinRetry}
     }
-
-
 }
 

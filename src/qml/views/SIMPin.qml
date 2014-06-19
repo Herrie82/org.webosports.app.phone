@@ -42,7 +42,7 @@ Rectangle {
 
             Text {
                 id: label
-                text: "Enter PIN to unlock SIM. "  + ofono.retries().pin + " attempts remaining."
+                text: "Enter PIN to unlock SIM. "  + telephonyManager.getPinRetries('pin') + " attempts remaining."
                 font.pixelSize: Units.dp(12)
                 color: main.appTheme.headerTip
                 anchors.horizontalCenter:parent.horizontalCenter
@@ -76,13 +76,13 @@ Rectangle {
                     onClicked: checkPin()
 
                     function checkPin(){
-                        if(ofono.unlockPin("pin", pin.text)){
+                        if(telephonyManager.enterkPin("pin", pin.text)){
                             //simPin.visible = false
                             stackView.pop()
                         } else {
                             pin.text = ""
-                            if(ofono.retries().pin >0){
-                               label.text = "Invalid PIN. Enter PIN to unlock SIM. " + ofono.retries().pin + " attempts remaining."
+                            if (telephonyManager.getPinRetries("pin") > 0) {
+                               label.text = "Invalid PIN. Enter PIN to unlock SIM. " + telephonyManager.getPinRetries("pin") + " attempts remaining."
                             } else{
                                   label.text = "Invalid PIN. Max retries exceeded."
                             }

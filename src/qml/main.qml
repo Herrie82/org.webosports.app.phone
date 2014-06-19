@@ -45,9 +45,8 @@ Window {
 
     Component.onCompleted: {
         var params = JSON.parse(application.launchParameters);
-        if (!params.launchedAtBoot) {
+        if (!params.launchedAtBoot)
             __window.show();
-        }
     }
 
 
@@ -65,16 +64,17 @@ Window {
             stackView.pop(tabView);
 
             // TODO: Close active Call when the App is closed.
-            if(manager.activeVoiceCall){
-             manager.activeVoiceCall.hangup();
+            if (manager.activeVoiceCall) {
+                manager.activeVoiceCall.hangup();
             }
+
             tabView.pDialPage.numberEntryText = '';
         }
     }
 
     StackView {
         id: stackView
-        anchors.fill: main
+        anchors.fill: parent
         initialItem: tabView
 
         delegate: StackViewDelegate {
@@ -144,9 +144,6 @@ Window {
         } else {
             manager.dial(providerId, msisdn);
         }
-
-
-
     }
 
     function secondsToTimeString(seconds) {
@@ -159,13 +156,22 @@ Window {
         return '' + h + ':' + m + ':' + s;
     }
 
-    //ActiveCallDialog {id:dActiveCall}
-
     PhoneTabView {id: tabView}
 
     ContactManager {id:people}
 
-    OfonoManager {id: ofono}
+    TelephonyManager {
+        id: telephonyManager
 
-    //SIMPin {id: simPin}
+        onPinRequiredChanged: {
+            if (telephonyManager.pinRequired) {
+                console.log("SIM PIN is required");
+                if (!__window.visible)
+                    __window.show();
+                stackView.push(Qt.resolvedUrl("views/SIMPin.qml"));
+            }
+            else
+                console.log("SIM PIN is not required");
+        }
+    }
 }
