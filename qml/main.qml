@@ -68,7 +68,7 @@ Item {
         id: telephonyManager
     }
 
-    VoiceCallManager {
+    VoiceCallMgr {
         id: voiceCallManager
         onIncomingCallChanged: {
             if (!voiceCallManager.incomingCall) {
