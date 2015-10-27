@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2014 Roshan Gunasekara <roshan@mobileteck.com>
+ * Copyright (C) 2015 Herman van Hazendonk <github.com@herrie.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -39,14 +40,14 @@ Rectangle {
         id:favouriteList
         anchors {margins:5;horizontalCenter:parent.horizontalCenter}
         anchors.fill: parent
-        spacing:10
+        spacing: Units.gu(1) //10
         clip:true
         model: favoritesModel
 
         delegate: Item {
             width:parent.width
-            height:Units.gu(10)
-            anchors { margins: 20}
+            height: Units.gu(10)
+            anchors { margins: Units.gu(2) } //20}
             
             MouseArea {
                 anchors.fill: parent
@@ -59,24 +60,24 @@ Rectangle {
                     color:main.appTheme.foregroundColor
                     width: 1.5
                 }
-                radius:20
+                radius: 20
                 color:'#00000000'
             }
 
             Row {
                 anchors {left:parent.left; leftMargin:10; verticalCenter:parent.verticalCenter}
-                spacing:10
+                spacing: Units.gu(1.0) //10
 
             Column {
                     Text {
                         // color:model.isMissedCall ? 'red' : 'white'
                         color: "white"
-                        font.pixelSize:Units.dp(20)
+                        font.pixelSize: FontUtils.sizeToPixels("20pt") //Units.dp(20)
                         text: name.familyName
                     }
                     Text {
                         color:'grey'
-                        font.pixelSize:Units.dp(15)
+                        font.pixelSize: FontUtils.sizeToPixels("15pt") //Units.dp(15)
                         // text: model.remoteUid
                         text: getPrimaryPhoneNumber(model);
                     }
@@ -91,7 +92,7 @@ Rectangle {
                 }
                 spacing:10
                 Button {
-                    width:Units.gu(5);height:Units.gu(5)
+                    width:Units.gu(5); height:Units.gu(5)
                     iconSource:'images/generic-details-view-avatar-small.png'
                 }
             }
@@ -101,7 +102,7 @@ Rectangle {
             visible: favouriteList.count === 0
             Text {
                 color: "white"
-                font.pixelSize:Units.dp(20)
+                font.pixelSize: FontUtils.sizeToPixels("20pt") //Units.dp(20)
                 text: "No favourites yet"
             }
         }

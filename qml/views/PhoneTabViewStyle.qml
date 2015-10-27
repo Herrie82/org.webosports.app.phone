@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2014 Roshan Gunasekara <roshan@mobileteck.com>
+ * Copyright (C) 2015 Herman van Hazendonk <github.com@herrie.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,8 +35,8 @@ TabViewStyle {
             clip: true
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
-            width: styleData.title === "Voicemail" ? 72: 48
-            height: 48
+            width: styleData.title === "Voicemail" ? Units.gu(7.2) : Units.gu (4.8) //72: 48
+            height: Units.gu(4.8) //48
             Image{
                 id: icon
                 x: 0

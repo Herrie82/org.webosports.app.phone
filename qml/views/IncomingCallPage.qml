@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2014 Roshan Gunasekara <roshan@mobileteck.com>
+ * Copyright (C) 2015 Herman van Hazendonk <github.com@herrie.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,6 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
+
 
 import QtQuick 2.0
 import QtQuick.Controls 1.1
@@ -38,15 +40,15 @@ Rectangle {
         }
 
         width: Units.gu(35)
-        height:Units.gu(35)
+        height: Units.gu(35)
         asynchronous:true
         fillMode:Image.PreserveAspectFit
         smooth:true
 
         Rectangle {
             anchors.fill:parent
-            border {color:main.appTheme.foregroundColor;width:2}
-            radius:10
+            border {color:main.appTheme.foregroundColor; width: Units.gu(0.2) }//2}
+            radius: 10
             color:'#00000000'
         }
 
@@ -63,7 +65,7 @@ Rectangle {
         }
 
         id: title
-        font.pixelSize: Units.dp(20)
+        font.pixelSize: FontUtils.sizeToPixels("20pt") //Units.dp(20)
         color: main.appTheme.headerTitle
         text:main.activeVoiceCallPerson
              ? main.activeVoiceCallPerson.displayLabel
@@ -81,16 +83,16 @@ Rectangle {
         spacing: Units.gu(16)
 
         IncomingAcceptButton {
-            height: 215
-            width: 215
+            height: Units.gu(7) //215
+            width: Units.gu(7) //215
             onClicked: {
                 main.accept();
             }
         }
 
         IncomingRejectButton {
-            height: 210
-            width: 210
+            height: Units.gu(7.0)//210
+            width: Units.gu(7.0) //210
             onClicked: {
                 main.reject();
             }

@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2014 Roshan Gunasekara <roshan@mobileteck.com>
+ * Copyright (C) 2015 Herman van Hazendonk <github.com@herrie.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,7 +29,7 @@ Rectangle {
         id:historyList
         anchors {/*top:parent.bottom;bottom:parent.bottom;*/margins:5;horizontalCenter:parent.horizontalCenter}
         anchors.fill: parent
-        spacing:4
+        spacing: Units.gu(0.4) //4
         clip:true
         model: CallHistory {}
 
@@ -40,7 +41,7 @@ Rectangle {
             }
 
             width:parent.width
-            height:Units.gu(5)
+            height: Units.gu(5)
 
             property Contact contact: Contact{}
 
@@ -54,8 +55,8 @@ Rectangle {
                 Item {
                     clip: true
                     anchors.verticalCenter: parent.verticalCenter
-                    width: 44
-                    height: 44
+                    width: Units.gu (4.4) //44
+                    height: Units.gu (4.4) //44
                     Image{
                         x: 0
                         y: model.isMissedCall ? 0 : ((model.direction === "inbound") ? -44 : -88)
@@ -67,12 +68,12 @@ Rectangle {
                 Column {
                     Text {
                         color:model.isMissedCall ? 'red' : 'white'
-                        font.pixelSize:Units.dp(20)
+                        font.pixelSize: FontUtils.sizeToPixels("20pt") //Units.dp(20)
                         text:contact ? contact.displayLabel : model.remoteUid
                     }
                     Text {
                         color:'grey'
-                        font.pixelSize:Units.dp(10)
+                        font.pixelSize: FontUtils.sizeToPixels("10pt") //Units.dp(10)
                         text:Qt.formatDateTime(model.startTime, Qt.DefaultLocaleShortDate)
                     }
                 }
@@ -81,12 +82,13 @@ Rectangle {
             Row {
                 anchors {
                     right:parent.right
-                    rightMargin:10
+                    rightMargin: Units.gu(1.0) //10
                     verticalCenter:parent.verticalCenter
                 }
                 spacing:10
                 Button {
-                    width:Units.gu(5);height:Units.gu(5)
+                    width:Units.gu(5);
+                    height:Units.gu(5)
                     iconSource:'images/generic-details-view-avatar-small.png'
                 }
             }
@@ -96,7 +98,7 @@ Rectangle {
             visible: historyList.count === 0
             Text {
                 color: "white"
-                font.pixelSize:Units.dp(20)
+                font.pixelSize: FontUtils.sizeToPixels("20pt") // Units.dp(20)
                 text: "No calls yet"
             }
         }

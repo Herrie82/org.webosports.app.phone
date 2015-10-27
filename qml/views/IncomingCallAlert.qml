@@ -82,16 +82,16 @@ LuneOS.ApplicationWindow {
         spacing: Units.gu(16)
 
         IncomingAcceptButton {
-            height: 215
-            width: 215
+            height: Units.gu(7) //215
+            width: Units.gu(7) //215
             onClicked: {
                 voiceCallManager.incomingCall.answer();
             }
         }
 
         IncomingRejectButton {
-            height: 210
-            width: 210
+            height: Units.gu(7) //210
+            width: Units.gu(7) //210
             onClicked: {
                 voiceCallManager.incomingCall.hangup();
             }

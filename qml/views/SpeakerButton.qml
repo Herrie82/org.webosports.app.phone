@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2014 Roshan Gunasekara <roshan@mobileteck.com>
- *
+ * Copyright (C) 2015 Herman van Hazendonk <github.com@herrie.org>
+  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -22,7 +23,7 @@ import LunaNext.Common 0.1
 
 Button {
     width: Units.gu(5)
-    height:Units.gu(5)
+    height: Units.gu(5)
 
     property bool btnActive: false
 
@@ -38,8 +39,8 @@ Button {
                 clip: true
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
-                width: 61
-                height: 61
+                width: Units.gu(6.1) //61
+                height: Units.gu(6.1) //61
                 Image{
                     x: 0
                     y: control.pressed ? -123: 0

@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2014 Roshan Gunasekara <roshan@mobileteck.com>
+ * Copyright (C) 2015 Herman van Hazendonk <github.com@herrie.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,26 +16,29 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-import QtQuick 2.0
+import QtQuick 2.5
 import QtQuick.Controls 1.1
 import QtQuick.Controls.Styles 1.1
+import LunaNext.Common 0.1
 
 Button {
-    width:210
-    height:210
+    width: Units.gu(21.0) //210
+    height: Units.gu(21.0) //210
 
     style: ButtonStyle {
         background: Item {
             clip: true
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
-            width: 210
-            height: 210
+            width: Units.gu(7) //210
+            height: Units.gu(7) //210
             Image{
                 x: 0
                 y: control.pressed ? -210: 0
                 source: "images/button-ignore-answer.png"
-
+                width: Units.gu(7)
+                height: Units.gu(7)
+                mipmap: true
             }
         }
     }

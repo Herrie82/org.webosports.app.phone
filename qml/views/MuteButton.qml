@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2014 Roshan Gunasekara <roshan@mobileteck.com>
+ * Copyright (C) 2015 Herman van Hazendonk <github.com@herrie.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -38,8 +39,8 @@ Button {
                 clip: true
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
-                width: 36
-                height: 66
+                width: Units.gu(3.6) //36
+                height: Units.gu(6.6) //66
                 Image{
                     x: 0
                     y: control.pressed ? -132: 10

@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2014 Roshan Gunasekara <roshan@mobileteck.com>
+ * Copyright (C) 2015 Herman van Hazendonk <github.com@herrie.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,21 +16,22 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-import QtQuick 2.0
+import QtQuick 2.5
 import QtQuick.Controls 1.1
 import QtQuick.Controls.Styles 1.1
+import LunaNext.Common 0.1
 
 Button {
-    width:630
-    height:99
+    width: Units.gu(61.2) //630
+    height: Units.gu(9.9) //99
 
     style: ButtonStyle {
         background: Item {
             clip: true
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
-            width: 630
-            height: 99
+            width: Units.gu(61.2) //640
+            height: Units.gu(9.9) //99
             Image{
                 x: 0
                 y: control.pressed ? -198: 0

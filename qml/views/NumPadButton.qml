@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2014 Roshan Gunasekara <roshan@mobileteck.com>
+ * Copyright (C) 2015 Herman van Hazendonk <github.com@herrie.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -35,7 +36,7 @@ Item {
         id: label
         anchors.centerIn: parent
         color: phoneUiAppTheme.foregroundColor
-        font.pixelSize: Units.dp(size)
+        font.pixelSize: FontUtils.sizeToPixels("25pt")
         font.bold: true
     }
 
@@ -44,7 +45,7 @@ Item {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top:label.bottom
         color:phoneUiAppTheme.subForegroundColor
-        font.pixelSize: Units.dp(10)
+        font.pixelSize: FontUtils.sizeToPixels("10pt") //Units.dp(10)
     }
 
     Rectangle {

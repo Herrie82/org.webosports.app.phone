@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2014 Roshan Gunasekara <roshan@mobileteck.com>
+ * Copyright (C) 2015 Herman van Hazendonk <github.com@herrie.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -70,7 +71,7 @@ Rectangle {
             Layout.fillWidth: true
             height: Units.gu(5)
             color:main.appTheme.foregroundColor
-            font.pixelSize: Units.dp(30)
+            font.pixelSize: FontUtils.sizeToPixels("30pt") //Units.dp(30)
             anchors{
                 horizontalCenter: parent.horizontalCenter
                 top: parent.top
@@ -120,14 +121,14 @@ Rectangle {
         }
 
         color:main.appTheme.foregroundColor
-        font.pixelSize: Units.dp(15)
+        font.pixelSize: FontUtils.sizeToPixels("15pt") //Units.dp(15)
         text:voiceCallManager.activeVoiceCall ? main.secondsToTimeString(voiceCallManager.activeVoiceCall.duration) : '00:00:00'
     }
 
 
     Flipable {
         id: flipable
-        height:Units.gu(35)
+        height: Units.gu(35)
 
         anchors{
             top: tVoiceCallDuration.bottom
@@ -162,7 +163,7 @@ Rectangle {
             }
 
             width: Units.gu(35)
-            height:Units.gu(35)
+            height: Units.gu(35)
             asynchronous:true
             fillMode:Image.PreserveAspectFit
             smooth:true
@@ -207,11 +208,11 @@ Rectangle {
 
     DisconnectButton {
         id: disconnectBtn
-        height: 99
+        height: Units.gu(9.9) //99
         anchors {
             top: flipable.bottom
             horizontalCenter:parent.horizontalCenter
-            margins:Units.gu(2)
+            margins: Units.gu(2)
         }
         onClicked: {
            voiceCallManager.hangup()
